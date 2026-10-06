@@ -1,0 +1,24 @@
+import { prisma } from "./config/prisma.js";
+
+const main = async () => {
+    const rider = await prisma.deliveryPartner.create({
+        data: {
+            name: "Test Rider",
+            email: "testrider@example.com",
+            phone: "9999999999",
+            isActive: true,
+        },
+    });
+
+    console.log("Created rider:");
+    console.log(rider);
+};
+
+main()
+    .catch((error) => {
+        console.error("Error:", error);
+        process.exit(1);
+    })
+    .finally(async () => {
+        await prisma.$disconnect();
+    });
