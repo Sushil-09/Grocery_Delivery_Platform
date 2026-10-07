@@ -48,7 +48,7 @@ const Login = () => {
                     <div className="text-center mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 mb-6">
                             <BikeIcon className="size-8 text-app-green" />
-                            <span className="text-2xl font-semibold text-app-green">Instacart</span>
+                            <span className="text-2xl font-semibold text-app-green">QuickBite</span>
                         </Link>
                         <h1 className="text-2xl font-semibold text-app-green mb-2">{isLoginState ? "Sign in to your account" : "Sign up for an account"}</h1>
 
