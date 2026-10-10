@@ -12,11 +12,18 @@ const PopularProducts = () => {
     useEffect(() => {
         api.get("/products?sort=rating")
             .then(({ data }) => {
-                setProducts(data.products);
+                setProducts(
+                    Array.isArray(data?.products) ? data.products : []
+                );
             })
             .catch((error: any) => {
-                toast.error(error.response.data.message || error?.message);
-            });
+    console.error("Failed to fetch popular products:", error);
+    toast.error(
+        error?.response?.data?.message ||
+        error?.message ||
+        "Failed to load popular products"
+    );
+});
     }, []);
     return (
         <section className="pb-16">
